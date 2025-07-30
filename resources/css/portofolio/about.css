@@ -1,0 +1,367 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh; /* Agar footer selalu di bawah */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Utility Classes for Layout (Pastikan konsisten dengan home.css) */
+.container-custom {
+    max-width: 1320px; /* Lebar maksimal container, sesuaikan dengan home.css */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem; /* Padding default */
+    padding-right: 1.5rem; /* Padding default */
+    width: 100%; /* Pastikan mengambil lebar penuh jika tidak melebihi max-width */
+}
+
+@media (min-width: 768px) {
+    .container-custom {
+        padding-left: 3rem; /* Tingkatkan padding di desktop agar lebih melebar */
+        padding-right: 3rem; /* Sesuaikan */
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-custom {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
+.shadow-sm-custom {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.rounded-custom {
+    border-radius: 0.25rem;
+}
+
+.my-5-custom { /* Margin Y (top/bottom) 5rem */
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.p-4-custom { /* Padding All 4 */
+    padding: 1.5rem;
+}
+
+.mb-4-custom { /* Margin Bottom 4 */
+    margin-bottom: 1.5rem;
+}
+
+.mb-3-custom { /* Margin Bottom 3 */
+    margin-bottom: 1rem;
+}
+
+/* Light Theme (Default) - Umum */
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* Navigation Bar (konsisten dengan home.css) */
+.main-nav {
+    background-color: #e9ecef;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 0;
+}
+.main-nav .container-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-brand-custom {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #212529;
+    flex-grow: 1; /* Penting untuk memisahkan brand dan nav links */
+}
+.navbar-toggler-custom {
+    display: none; /* Hidden by default for desktop */
+    background: none;
+    border: 1px solid #6c757d;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    color: #6c757d;
+}
+.toggler-icon-custom {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+.nav-links-collapse {
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar-nav-custom {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.nav-item-custom {
+    margin-left: 1.5rem;
+}
+.nav-link-custom {
+    text-decoration: none;
+    color: #212529;
+    padding: 0.5rem 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+.nav-link-custom:hover, .nav-link-custom.active-custom {
+    color: #0d6efd;
+}
+.theme-toggle-container {
+    margin-left: 1rem;
+}
+.btn-theme-toggle {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    background-color: #6c757d; /* Gray button for toggle */
+    border-color: #6c757d;
+    color: white;
+}
+.btn-theme-toggle:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+/* Main Content Area (perlu kelas kustom) */
+.main-content-custom {
+    background-color: #ffffff; /* White for main content */
+    color: #212529;
+    margin-top: 1.5rem; /* Menaikkan sedikit lagi */
+    margin-bottom: 3rem;
+    padding: 2rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Shadow */
+    border-radius: 0.25rem; /* Rounded corners */
+    flex-grow: 1; /* Agar konten mengisi ruang sisa dan mendorong footer ke bawah */
+}
+
+/* Heading dan Paragraphs */
+.content-title-custom {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+.content-paragraph-custom {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.sub-title-custom { /* Untuk H3 Keterampilan */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* List Group (Keterampilan) */
+.list-group-custom {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.list-group-item-custom {
+    background-color: #ffffff;
+    color: #212529;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px; /* Untuk membuat border terlihat menyatu */
+}
+.list-group-item-custom:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.list-group-item-custom:last-child {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+
+/* Footer (konsisten dengan home.css) */
+.footer-custom {
+    background-color: #212529;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Mendorong footer ke bawah */
+}
+
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #2d3035; /* Sedikit lebih terang dari #212529, tapi masih gelap */
+    color: #f8f9fa;
+}
+
+body.dark-theme .main-nav {
+    background-color: #343a40;
+    border-bottom: 1px solid #495057;
+}
+body.dark-theme .navbar-brand-custom {
+    color: #f8f9fa;
+}
+body.dark-theme .navbar-toggler-custom {
+    border-color: #f8f9fa;
+    color: #f8f9fa;
+}
+body.dark-theme .toggler-icon-custom {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28248, 249, 250, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+body.dark-theme .nav-link-custom {
+    color: #f8f9fa;
+}
+body.dark-theme .nav-link-custom:hover, body.dark-theme .nav-link-custom.active-custom {
+    color: #4de6bc;
+}
+body.dark-theme .btn-theme-toggle {
+    background-color: #495057;
+    border-color: #495057;
+    color: white;
+}
+body.dark-theme .btn-theme-toggle:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+body.dark-theme .main-content-custom {
+    background-color: #343a40; /* Darker main content */
+    color: #f8f9fa;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+}
+body.dark-theme .content-title-custom,
+body.dark-theme .sub-title-custom,
+body.dark-theme .content-paragraph-custom {
+    color: #f8f9fa;
+}
+body.dark-theme .list-group-item-custom {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border: 1px solid #495057;
+}
+
+body.dark-theme .footer-custom {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+
+/* Responsive Adjustments (Basic) - konsisten dengan home.css */
+@media (max-width: 768px) {
+    .navbar-toggler-custom {
+        display: block; /* Show toggler on smaller screens */
+        margin-left: auto; /* Push toggler to right on mobile */
+    }
+    .main-nav .container-custom {
+        flex-wrap: wrap; /* Izinkan wrapping untuk mobile */
+    }
+    .nav-links-collapse {
+        display: none; /* Hide navigation links by default */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #e9ecef; /* Match nav background */
+        border-top: 1px solid #dee2e6;
+        padding-top: 1rem;
+        position: absolute; /* Mengatasi masalah z-index dan layout */
+        top: 100%; /* Posisikan di bawah navbar */
+        left: 0;
+        right: 0;
+        z-index: 1000; /* Pastikan di atas konten lain */
+    }
+    .nav-links-collapse.show {
+        display: flex; /* Show when toggler is clicked */
+    }
+    body.dark-theme .nav-links-collapse {
+        background-color: #343a40;
+        border-top: 1px solid #495057;
+    }
+    .navbar-nav-custom {
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-item-custom {
+        margin: 0.5rem 0; /* Adjust spacing for stacked items */
+    }
+    .theme-toggle-container {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Sakelar Tema */
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider-switch {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 30px;
+        }
+
+        .slider-switch:before {
+            position: absolute;
+            content: "🌞";
+            height: 24px;
+            width: 24px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: .4s;
+        }
+
+        input:checked + .slider-switch {
+            background-color: #ccc;
+        }
+
+        input:checked + .slider-switch:before {
+            transform: translateX(30px);
+            content: "🌙";
+        }

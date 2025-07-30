@@ -1,0 +1,438 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh; /* Agar footer selalu di bawah */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Light Theme (Default) */
+body {
+    background-color: #f8f9fa; /* Light background */
+    color: #212529; /* Dark text */
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #2d3035; /* Sedikit lebih terang dari #212529, tapi masih gelap */
+    color: #f8f9fa; /* Off-white text */
+}
+
+/* Utility Classes for Layout */
+.container-custom {
+    max-width: 1320px; /* Coba tingkatkan max-width lebih jauh, misal 1320px atau 1440px */
+    /* Atau gunakan persentase seperti 90% atau 95% untuk responsifitas yang lebih dinamis */
+    /* max-width: 90%; */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem; /* Padding default */
+    padding-right: 1.5rem; /* Padding default */
+    width: 100%; /* Pastikan mengambil lebar penuh jika tidak melebihi max-width */
+}
+
+@media (min-width: 768px) {
+    .container-custom {
+        padding-left: 3rem; /* Tingkatkan padding di desktop agar lebih melebar */
+        padding-right: 3rem; /* Sesuaikan */
+    }
+}
+
+@media (min-width: 1200px) { /* Untuk layar yang lebih besar lagi */
+    .container-custom {
+        padding-left: 4rem; /* Bisa ditingkatkan lagi untuk layar sangat lebar */
+        padding-right: 4rem;
+    }
+}
+
+
+.text-center-custom {
+    text-align: center;
+}
+
+.py-5-custom { /* Padding Y (top/bottom) 5rem */
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.my-5-custom { /* Margin Y (top/bottom) 5rem */
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.mb-3-custom { /* Margin Bottom 3 */
+    margin-bottom: 1rem;
+}
+
+.mb-4-custom { /* Margin Bottom 4 */
+    margin-bottom: 1.5rem;
+}
+
+.mt-4-custom { /* Margin Top 4 */
+    margin-top: 1.5rem;
+}
+
+.p-4-custom { /* Padding All 4 */
+    padding: 1.5rem;
+}
+
+.shadow-sm-custom {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+body.dark-theme .shadow-sm-custom {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+}
+
+.rounded-custom {
+    border-radius: 0.25rem;
+}
+
+/* Navigation Bar */
+.main-nav {
+    background-color: #e9ecef;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 0; /* Padding vertikal untuk keseluruhan nav */
+}
+
+/* Menerapkan flexbox ke container di dalam nav */
+.main-nav .container-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* PENTING: Menjadikan ini parent untuk positioning absolute */
+    /* Tidak perlu padding tambahan di sini karena sudah di .container-custom global */
+}
+
+body.dark-theme .main-nav {
+    background-color: #343a40;
+    border-bottom: 1px solid #495057;
+}
+
+.navbar-brand-custom {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #212529;
+    /* Tambahkan flex-grow agar mengambil ruang yang tersedia, mendorong nav lainnya ke kanan */
+    flex-grow: 1; /* Memberikan ruang ekstra pada brand */
+}
+
+body.dark-theme .navbar-brand-custom {
+    color: #f8f9fa;
+}
+
+.navbar-toggler-custom {
+    display: none; /* Default hidden for desktop */
+    background: none;
+    border: 1px solid #6c757d;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    color: #6c757d;
+    margin-left: auto; /* Push toggler to right on mobile */
+}
+
+body.dark-theme .navbar-toggler-custom {
+    border-color: #f8f9fa;
+    color: #f8f9fa;
+}
+
+.toggler-icon-custom {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+body.dark-theme .toggler-icon-custom {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28248, 249, 250, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+.nav-links-collapse {
+    /* flex-grow: 1;  Tidak perlu lagi di sini karena sudah diatur di navbar-brand-custom */
+    display: flex; /* Make it a flex container */
+    justify-content: flex-end; /* Push items to the right */
+}
+
+.navbar-nav-custom {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Make nav items horizontal */
+    align-items: center; /* Vertically align items */
+}
+
+.nav-item-custom {
+    margin-left: 1.5rem; /* Spacing between nav items */
+}
+
+.nav-link-custom {
+    text-decoration: none;
+    color: #212529;
+    padding: 0.5rem 0; /* Add some vertical padding */
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover, .nav-link-custom.active-custom {
+    color: #0d6efd; /* Primary blue */
+}
+
+body.dark-theme .nav-link-custom {
+    color: #f8f9fa;
+}
+
+body.dark-theme .nav-link-custom:hover, body.dark-theme .nav-link-custom.active-custom {
+    color: #4de6bc; /* Lighter accent */
+}
+
+.theme-toggle-container {
+    margin-left: 1rem;
+}
+
+
+/* Header Section */
+.header-section-custom {
+    background-color: #add8e6; /* Soft blue */
+    color: #212529;
+    text-align: center;
+    padding: 5rem 0;
+}
+
+body.dark-theme .header-section-custom {
+    background-color: #343a40; /* Darker header, beda dari body */
+    color: #f8f9fa;
+}
+
+.header-title-custom {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.header-lead-custom {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn-primary-custom, .btn-theme-toggle {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary-custom {
+    background-color: #0d6efd; /* Primary blue */
+    border-color: #0d6efd;
+    color: white;
+    margin-top: 1rem;
+}
+
+.btn-primary-custom:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+body.dark-theme .btn-primary-custom {
+    background-color: #20c997; /* Teal accent */
+    border-color: #20c997;
+    color: white;
+}
+
+body.dark-theme .btn-primary-custom:hover {
+    background-color: #1a9e7d;
+    border-color: #1a9e7d;
+}
+
+.btn-theme-toggle {
+    background-color: #6c757d; /* Gray */
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-theme-toggle:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+body.dark-theme .btn-theme-toggle {
+    background-color: #495057; /* Darker gray */
+    border-color: #495057;
+}
+
+body.dark-theme .btn-theme-toggle:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+/* Main Content Area */
+.main-content-custom {
+    background-color: #ffffff; /* Mengembalikan warna putih untuk tema terang */
+    color: #212529;
+    margin-top: 1.5rem; /* Menaikkan sedikit lagi */
+    margin-bottom: 3rem;
+    padding: 2rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Shadow */
+    border-radius: 0.25rem; /* Rounded corners */
+    flex-grow: 1; /* Agar konten mengisi ruang sisa dan mendorong footer ke bawah */
+}
+
+body.dark-theme .main-content-custom {
+    /* Ini akan menjadi warna utama konten di tema gelap, harus lebih terang dari body */
+    background-color: #343a40; /* Warna gelap yang berbeda dari body, seperti warna navbar */
+    color: #f8f9fa;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+}
+
+.content-title-custom {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.content-paragraph-custom {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer-custom {
+    background-color: #212529; /* Dark background - ini yang paling gelap */
+    color: #f8f9fa;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Mendorong footer ke bawah */
+}
+
+body.dark-theme .footer-custom {
+    background-color: #212529; /* Pastikan ini tetap gelap */
+    color: #f8f9fa;
+}
+
+/* Responsive Adjustments (Basic) */
+@media (max-width: 768px) {
+    .navbar-toggler-custom {
+        display: block; /* Show toggler on smaller screens */
+    }
+    
+    .main-nav .container-custom {
+        flex-wrap: wrap; /* Izinkan wrapping untuk mobile */
+    }
+    .nav-links-collapse {
+        /* Mengatur display ke flex secara default di mobile */
+        display: flex;
+        flex-direction: column; /* Tetap flex-direction column untuk item */
+        width: 100%;
+        text-align: center;
+        background-color: #e9ecef;
+        border-top: 1px solid #dee2e6;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+
+        /* Properti untuk animasi collapse */
+        max-height: 0; /* Awalnya tersembunyi */
+        padding: 0; /* Awalnya tidak ada padding */
+        opacity: 0; /* Awalnya tidak terlihat */
+        visibility: hidden; /* Awalnya tidak interaktif */
+        overflow: hidden; /* Sembunyikan konten yang meluap */
+        
+        /* Transisi untuk semua properti yang berubah */
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+    }
+    .nav-links-collapse.show {
+        max-height: 500px; /* Cukup tinggi untuk menampung semua item menu */
+        padding: 1rem; /* Tambahkan padding saat ditampilkan */
+        opacity: 1; /* Tampilkan sepenuhnya */
+        visibility: visible; /* Jadikan terlihat dan interaktif */
+    }
+    body.dark-theme .nav-links-collapse {
+        background-color: #343a40;
+        border-top: 1px solid #495057;
+    }
+    .navbar-nav-custom {
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-item-custom {
+        margin: 0.5rem 0; /* Adjust spacing for stacked items */
+    }
+    .theme-toggle-container {
+        margin: 0.5rem 0;
+    }
+}
+
+
+/* Sakelar Tema */
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider-switch {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 30px;
+        }
+
+        .slider-switch:before {
+            position: absolute;
+            content: "🌞";
+            height: 24px;
+            width: 24px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: .4s;
+        }
+
+        input:checked + .slider-switch {
+            background-color: #ccc;
+        }
+
+        input:checked + .slider-switch:before {
+            transform: translateX(30px);
+            content: "🌜";
+        }
