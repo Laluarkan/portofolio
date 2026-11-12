@@ -4,5 +4,3 @@ dist
 .DS_Store
 .env
 *.tsbuildinfo
-/CV*.pdf
-/public/cv-kreatif.pdf

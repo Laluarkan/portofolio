@@ -4,13 +4,13 @@ export const profile = {
   roles: ["Full-Stack Developer", "Backend & IoT Engineer", "AI & ML Practitioner", "System Builder"],
   location: "Mataram, Nusa Tenggara Barat",
   email: "lalunaufalarkan21@gmail.com",
-  // Simpan foto Anda di folder public/profile.jpg (atau ubah path di bawah ini)
-  photo: "/profile.jpg",
+  // Simpan foto Anda di folder public/profile.webp (atau ubah path di bawah ini)
+  photo: "/profile.webp",
   summary:
     "Lulusan Teknik Elektro (Teknik Komputer) Universitas Mataram yang fokus membangun aplikasi web full-stack, sistem berbasis kecerdasan buatan, dan perangkat IoT — merancang solusi digital yang rapi, cepat, dan siap digunakan di dunia nyata.",
   about: [
     "Saya memiliki latar belakang Teknik Komputer yang membuat saya nyaman bekerja di berbagai lapisan sistem: merancang skema basis data dan REST API di backend, menyusun antarmuka web modern di frontend, hingga merakit perangkat telemetri IoT di lapangan.",
-    "Saat saya mengikuti program MagangHub di Balai Besar POM (BBPOM) di Mataram sebagai Full-Stack App Developer. Di sana saya mengembangkan dan memelihara berbagai modul aplikasi internal yang terhubung melalui satu portal dan sistem Single Sign-On (SSO) berbasis JWT.",
+    "Saat ini saya mengikuti program MagangHub di Balai Besar POM (BBPOM) di Mataram sebagai Full-Stack App Developer. Di sana saya mengembangkan dan memelihara berbagai modul aplikasi internal yang terhubung melalui satu portal dan sistem Single Sign-On (SSO) berbasis JWT.",
     "Di luar itu, saya senang membangun produk digital dari nol — termasuk platform analitik sepak bola berbasis machine learning dan platform top-up game otomatis yang berjalan aktif di produksi.",
   ],
   available: true,
@@ -103,9 +103,10 @@ export const experiences = [
     period: "2022 — 2026",
     type: "Pendidikan",
     points: [
+      "Tugas Akhir: Implementasi dan Analisis Akurasi Metode Analitik Denavit-Hartenberg untuk Penyelesaian Inverse Kinematics Lengan Robot 3-DOF pada Kasus Welding Path.",
       "Fokus studi pada Pemrograman Web, Sistem Basis Data, Kecerdasan Buatan, dan Sistem Tertanam.",
     ],
-    tags: ["Teknik Komputer", "Rekayasa Perangkat Lunak", "Sistem Tertanam"],
+    tags: ["Teknik Komputer", "Robotika & Kinematika", "Rekayasa Perangkat Lunak"],
   },
 ];
 
@@ -120,7 +121,7 @@ export const bpomModules = [
   { code: "PENGUJIAN", name: "Sampel & Barcode Lab", desc: "Manajemen batch sampel SPU laboratorium, cetak barcode/QR, dan ekspor dokumen uji." },
 ];
 
-export type ProjectCategory = "Semua" | "Full-Stack & Enterprise" | "AI & Machine Learning" | "IoT & Robotics";
+export type ProjectCategory = "Semua" | "Full-Stack & Enterprise" | "AI & Machine Learning" | "IoT & Robotics" | "Robotics" | "Tools";
 
 export type Project = {
   title: string;
@@ -130,6 +131,8 @@ export type Project = {
   highlights?: string[];
   tags: string[];
   accentColor?: string;
+  images?: string[];
+  video?: string;
   demo?: string;
   repo?: string;
   badge?: string;
@@ -137,6 +140,58 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: "L1 Prediksi-Kan",
+    subtitle: "Platform Analitik & Prediksi Sepak Bola AI",
+    category: "AI & Machine Learning",
+    desc: "Aplikasi web full-stack bertenaga Machine Learning & Reinforcement Learning untuk memprediksi probabilitas hasil pertandingan, Over/Under, dan rekomendasi value bet dari 17.000+ data historis liga Eropa.",
+    highlights: [
+      "Otomatisasi pembaruan data pertandingan, statistik head-to-head, dan inferensi prediksi berkala.",
+      "Integrasi model ML & Reinforcement Learning untuk menghitung probabilitas FTR, Over/Under, serta ukuran value bet secara dinamis.",
+      "Optimasi kueri basis data untuk mengatasi bottleneck memori pada pemrosesan data skala besar.",
+    ],
+    tags: ["Django", "React", "Supabase", "Machine Learning", "Reinforcement Learning"],
+    images: ["/image-l1-1.webp", "/image-l1-2.webp", "/image-l1-3.webp"],
+    demo: "https://www.l1prediksikan.my.id",
+    repo: "https://github.com/Laluarkan/l1prediksikan_final",
+    badge: "Live · l1prediksikan.my.id",
+    accentColor: "from-emerald-400/25 via-teal-500/10 to-cyan-500/20",
+    featured: true,
+  },
+  {
+    title: "ArTa Zone",
+    subtitle: "Platform Top-Up Game & PPOB Otomatis 24 Jam",
+    category: "Full-Stack & Enterprise",
+    desc: "Layanan pembelian voucher game dan produk PPOB instan dengan pemrosesan transaksi otomatis 24 jam dari pembayaran hingga pengiriman produk ke akun pengguna.",
+    highlights: [
+      "Integrasi API Digiflazz untuk katalog & pemesanan produk digital serta Midtrans Payment Gateway untuk multi-metode pembayaran.",
+      "Arsitektur webhook terstruktur untuk pembaruan status transaksi real-time, sinkronisasi harga otomatis, dan fitur auto-refund jika transaksi gagal.",
+    ],
+    tags: ["React", "Laravel", "Midtrans", "Digiflazz API", "Webhook", "MySQL"],
+    images: ["/image-arta-1.webp", "/image-arta-2.webp", "/image-arta-3.webp"],
+    demo: "https://www.kansss.my.id",
+    repo: "https://github.com/Laluarkan/Project-Arta-Topup",
+    badge: "Live · kansss.my.id",
+    accentColor: "from-cyan-400/25 via-sky-500/10 to-indigo-500/20",
+    featured: true,
+  },
+  {
+    title: "Inverse Kinematics Analitik Denavit-Hartenberg pada Lengan Robot 3-DOF (Welding Path)",
+    subtitle: "Tugas Akhir S1 Teknik Elektro — Simulasi Dinamis Benda Tegar CoppeliaSim",
+    category: "IoT & Robotics",
+    desc: "Implementasi dan analisis metode Inverse Kinematics (IK) analitik bentuk tertutup (closed-form) berbasis parameter Denavit-Hartenberg (DH) dan geometri planar untuk memandu pelacakan lintasan pengelasan (welding path) lengan robot 3-DOF pada simulasi dinamis benda tegar CoppeliaSim.",
+    highlights: [
+      "Memetakan ruang kerja (workspace) 3D berbentuk kubah berongga menggunakan persamaan Forward Kinematics dengan kompensasi pergeseran engsel menyamping (lateral offset) 0,15 m serta akurasi teoritis IK–FK mutlak (galat 0,000 mm).",
+      "Menguji pelacakan lintasan kontinu pada simulasi dinamis CoppeliaSim yang memperhitungkan massa material, matriks inersia, dan gravitasi melalui komunikasi sinkron Python API.",
+      "Mencapai akurasi pelacakan sangat presisi dengan Mean Absolute Error (MAE) sebesar 0,0014 m (1,4 mm) pada jalur lurus dan 0,0022 m (2,2 mm) pada jalur lengkung kurva-S.",
+    ],
+    tags: ["Python", "CoppeliaSim", "Inverse Kinematics", "Denavit-Hartenberg", "3-DOF Robotic Arm", "Welding Path", "Rigid Body Dynamics"],
+    video: "/TA_video.mp4",
+    repo: "https://github.com/Laluarkan/TugasAkhir",
+    badge: "Tugas Akhir · Video Simulasi",
+    accentColor: "from-cyan-400/25 via-emerald-500/10 to-lime-400/20",
+    featured: true,
+  },
   {
     title: "Ekosistem Aplikasi Internal BBPOM Mataram",
     subtitle: "Super-App & Single Sign-On Instansi",
@@ -152,38 +207,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "L1 Prediksi-Kan",
-    subtitle: "Platform Analitik & Prediksi Sepak Bola AI",
-    category: "AI & Machine Learning",
-    desc: "Aplikasi web full-stack bertenaga Machine Learning & Reinforcement Learning untuk memprediksi probabilitas hasil pertandingan, Over/Under, dan rekomendasi value bet dari 17.000+ data historis liga Eropa.",
-    highlights: [
-      "Otomatisasi pembaruan data pertandingan dan inferensi berkala.",
-      "Optimasi kueri basis data untuk mengatasi bottleneck memori pada pemrosesan data skala besar.",
-    ],
-    tags: ["Django", "React", "Supabase", "Machine Learning", "Reinforcement Learning"],
-    demo: "https://www.l1prediksikan.my.id",
-    repo: "https://github.com/Laluarkan/l1prediksikan_final",
-    badge: "Live · l1prediksikan.my.id",
-    accentColor: "from-emerald-400/25 via-teal-500/10 to-cyan-500/20",
-    featured: true,
-  },
-  {
-    title: "ArTa Zone",
-    subtitle: "Platform Top-Up Game & PPOB Otomatis 24 Jam",
-    category: "Full-Stack & Enterprise",
-    desc: "Layanan pembelian voucher game dan produk PPOB instan dengan pemrosesan transaksi otomatis dari pembayaran hingga pengiriman produk.",
-    highlights: [
-      "Integrasi API Digiflazz untuk katalog & pemesanan produk digital serta Midtrans Payment Gateway untuk pembayaran.",
-      "Arsitektur webhook terstruktur untuk pembaruan status real-time, sinkronisasi harga, dan auto-refund transaksi gagal.",
-    ],
-    tags: ["React", "Laravel", "Midtrans", "Digiflazz API", "Webhook", "MySQL"],
-    demo: "https://www.kansss.my.id",
-    repo: "https://github.com/Laluarkan/Project-Arta-Topup",
-    badge: "Live · kansss.my.id",
-    accentColor: "from-cyan-400/25 via-sky-500/10 to-indigo-500/20",
-    featured: true,
-  },
-  {
     title: "IoT Water Meter Monitoring & Tester",
     subtitle: "Alat Uji & Telemetri Meteran Air Pelanggan",
     category: "IoT & Robotics",
@@ -195,7 +218,7 @@ export const projects: Project[] = [
   {
     title: "RoboKin DH Studio",
     subtitle: "Simulator Kinematika Manipulator Robot 3D di Browser",
-    category: "IoT & Robotics",
+    category: "Robotics",
     desc: "Platform web interaktif untuk menghitung Forward & Inverse Kinematics berbasis parameter Denavit-Hartenberg (DH), lengkap dengan visualisasi 3D, simulasi lintasan (trajectory), metrik akurasi, dan ekspor kode.",
     tags: ["Robotics", "3D Kinematics", "Denavit-Hartenberg", "TypeScript", "Python"],
     badge: "Robotics Studio",
@@ -214,7 +237,7 @@ export const projects: Project[] = [
   {
     title: "Monev Logbook Bot",
     subtitle: "Asisten Telegram Berbasis Google Gemini",
-    category: "AI & Machine Learning",
+    category: "Tools",
     desc: "Bot Telegram yang menjadwalkan pengingat harian dan menyusun draf logbook MagangHub (Rencana Capaian, Realisasi, dan Refleksi) secara otomatis dari catatan singkat menggunakan Google Gemini 2.5 Flash.",
     tags: ["Python", "Telegram Bot", "Gemini API", "Automation"],
     repo: "https://github.com/Laluarkan/Bot_Monev",
